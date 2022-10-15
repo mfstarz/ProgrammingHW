@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW2_1\HW2_1\Source.cpp(23,12): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW2_1\HW2_1\Source.cpp(24,13): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  HW2_1.vcxproj -> C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW2_1\x64\Debug\HW2_1.exe
