@@ -32,7 +32,7 @@ int romanToInt(char ch) {
 }
 
 int main() {
-	char roman_number[] = "MCMXCII";
+	char roman_number[] = "M";
 	int chars_to_num[sizeof(roman_number)]{};
 	int converted = 0;
 
