@@ -1,7 +1,13 @@
 #include <iostream>
 #include <string>
+#include <regex>
 
 using namespace std;
+
+bool is_valid_roman_number(string roman_num) {
+	static const regex REGEX_VALID_ROMAN_NUMBER("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+	return regex_match(roman_num, REGEX_VALID_ROMAN_NUMBER);
+}
 
 int romanToInt(char ch) {
 	switch (ch)
@@ -26,49 +32,20 @@ int romanToInt(char ch) {
 }
 
 int main() {
-	char roman_number[] = "XVXXV";
+	char roman_number[] = "MCMXCII";
 	int chars_to_num[sizeof(roman_number)]{};
 	int converted = 0;
+
+	if (!is_valid_roman_number(roman_number)) {
+		cout << "ERROR: Invalid Roman Number...";
+		return 0;
+	}
 
 	// convert individual values
 	for (int i = 0; i < sizeof(roman_number); i++) {
 		chars_to_num[i] = romanToInt(roman_number[i]);
 	}
-
-	// check if V, L, D are repeated
-	for (int i = 0; i < sizeof(chars_to_num) / sizeof(chars_to_num[0]) - 1; i++) {
-		if ((chars_to_num[i] == 5 || chars_to_num[i] == 50 || chars_to_num[i] == 500) && chars_to_num[i] == chars_to_num[i + 1]) {
-			cout << "wrong number";
-			return 0;
-		}
-	}
-
-	// check if there's >3 repeats
-	for (int i = 0; i < sizeof(chars_to_num) / sizeof(chars_to_num[0]) - 1; i++) {
-		if (chars_to_num[i] == chars_to_num[i + 1] && chars_to_num[i + 1] == chars_to_num[i + 2] && chars_to_num[i + 2] == chars_to_num[i + 3] && chars_to_num[i] != 1000) {
-			cout << "wrong number";
-			return 0;
-		}
-	}
-
-	// check if I, X,  C are the only substractors
-	for (int i = 0; i < sizeof(chars_to_num) / sizeof(chars_to_num[0]) - 1; i++) {
-		if (chars_to_num[i] < chars_to_num[i + 1]) {
-			if (chars_to_num[i] == 1 && chars_to_num[i + 1] != 5 || chars_to_num[i] == 1 && chars_to_num[i + 1] != 10) {
-				cout << "Wrong number";
-				return 0;
-			}
-			if (chars_to_num[i] == 10 && chars_to_num[i + 1] != 50 || chars_to_num[i] == 10 && chars_to_num[i + 1] != 100) {
-				cout << "Wrong number";
-				return 0;
-			}
-			if (chars_to_num[i] == 100 && chars_to_num[i + 1] != 500 || chars_to_num[i] == 100 && chars_to_num[i + 1] != 1000) {
-				cout << "Wrong number";
-				return 0;
-			}
-		}
-	}
-
+	
 	// convert
 	for (int i = 0; i < sizeof(chars_to_num) / sizeof(chars_to_num[0]) - 1; i++) {
 		if (chars_to_num[i] >= chars_to_num[i + 1]) {
