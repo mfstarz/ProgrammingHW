@@ -6,14 +6,14 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    cout << "¬ведите S:\n";
     double S;
+    double m;
+    double n;
+    cout << "¬ведите S:\n";
     cin >> S;
     cout << "¬ведите m:\n";
-    double m;
     cin >> m;
     cout << "¬ведите n:\n";
-    double n;
     cin >> n;
     if (!S || !m || !n)
     {
