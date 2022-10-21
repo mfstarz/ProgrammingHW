@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//convert binary to decimal
 int bin_to_dec(int bin) {
     int dec = 0, i = 0, rem;
 
