@@ -5,19 +5,24 @@
 using namespace std;
 
 int main() {
-	HWND hWnd = GetConsoleWindow();
-	HDC hDC = GetDC(hWnd);
-	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
-	SelectObject(hDC, Pen);
-	MoveToEx(hDC, 0, 85, NULL);
-	LineTo(hDC, 200, 85);
-	MoveToEx(hDC, 100, 0, NULL);
-	LineTo(hDC, 100, 170);
-	for (float x = -8; x <= 8; x += 0.01) {
-		MoveToEx(hDC, 10 * x + 100, -10 * sin(x) + 85, NULL);
-		LineTo(hDC, 10 * x + 100, -10 * sin(x) + 85);
-	}
-	ReleaseDC(hWnd, hDC);
-	cin.get();
-	return 0;
+    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
+    GetConsoleScreenBufferInfo(handle, &consoleInfo);
+    int height = consoleInfo.srWindow.Bottom - consoleInfo.srWindow.Top;
+    int width = consoleInfo.srWindow.Right - consoleInfo.srWindow.Left + 1;
+
+    auto GetX = [&](double x) { return int(x / 7 * width); };
+    auto GetY = [&](double y) { return int((-y / 1 + 1) * (height / 2)); };
+
+    _COORD c;
+    for (double i = 0; i < 7; i += 0.02)
+    {
+        c.X = GetX(i);
+        c.Y = GetY(sin(i));
+        SetConsoleCursorPosition(handle, c);
+        cout << '*';
+    }
+
+    cin.get();
+    CloseHandle(handle);
 }    
