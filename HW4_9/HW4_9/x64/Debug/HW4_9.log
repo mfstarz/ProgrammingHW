@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(13,20): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(27,20): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(35,29): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  HW4_9.vcxproj -> C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\x64\Debug\HW4_9.exe
