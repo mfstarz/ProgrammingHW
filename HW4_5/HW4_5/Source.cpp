@@ -15,7 +15,7 @@ int main() {
     auto GetY = [&](double y) { return int((-y / 1 + 1) * (height / 2)); };
 
     _COORD c;
-    for (double i = 0; i < 7; i += 0.02)
+    for (double i = 0; i < 7; i += 0.03)
     {
         c.X = GetX(i);
         c.Y = GetY(sin(i));
