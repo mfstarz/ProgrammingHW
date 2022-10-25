@@ -18,7 +18,7 @@ int main() {
     for (double i = 0; i < 7; i += 0.03)
     {
         c.X = GetX(i);
-        c.Y = GetY(sin(i));
+        c.Y = GetY(cos(i));
         SetConsoleCursorPosition(handle, c);
         cout << '*';
     }

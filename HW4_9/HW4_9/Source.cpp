@@ -57,6 +57,16 @@ int main() {
     cout << "Enter a number's system (2, 8, 10, 16): ";
     cin >> num_system;
 
+    char max_char = 0;
+    for (int k = 0; k < i.length(); k++) {
+        max_char = max(max_char, i[k]);
+    }
+
+    if (max_char > num_system) {
+        cout << "Wrong system...";
+        return 0;
+    }
+
     if (num_system != 2 && num_system != 8 && num_system != 10 && num_system != 16) {
         cout << "System not supported";
         return 0;
