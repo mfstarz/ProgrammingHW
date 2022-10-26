@@ -1,89 +1,63 @@
+// convert number from any base to any other base
+// 1. read number from console
+// 2. read base of number from console
+// 3. read base to convert to from console
+// 4. convert number to decimal
+// 5. convert number from decimal to new base
+// 6. print result to console
+
 #include <iostream>
 #include <string>
-#include <bitset>
-
+#include <cmath>
 using namespace std;
 
-//convert binary to decimal
-int bin_to_dec(int bin) {
-    int dec = 0, i = 0, rem;
-
-    while (bin != 0) {
-        rem = bin % 10;
-        bin /= 10;
-        dec += rem * pow(2, i);
-        ++i;
-    }
-
-    return dec;
-}
-
-int oct_to_dec(int oct_num)
+int main()
 {
-    int dec = 0, i = 0, rem;
-    while (oct_num != 0)
-    {
-        rem = oct_num % 10;
-        oct_num /= 10;
-        dec += rem * pow(8, i);
-        ++i;
-    }
-    return dec;
-}
+	string number;
+	int base, base2;
+	int decimal = 0;
+	int power = 0;
+	int result = 0;
+	int remainder = 0;
+	string newNumber = "";
 
-int hex_to_dec(string hex_num)
-{
-    int len = hex_num.size();
-    int base = 1;
-    int dec = 0;
-    for (int i = len - 1; i >= 0; i--) {
-        if (hex_num[i] >= '0' && hex_num[i] <= '9') {
-            dec += (int(hex_num[i]) - 48) * base;
-            base = base * 16;
-        }
-        else if (hex_num[i] >= 'A' && hex_num[i] <= 'F') {
-            dec += (int(hex_num[i]) - 55) * base;
-            base = base * 16;
-        }
-    }
-    return dec;
-}
+	cout << "Enter a number: ";
+	cin >> number;
+	cout << "Enter the base of the number: ";
+	cin >> base;
+	cout << "Enter the base to convert to: ";
+	cin >> base2;
 
-int main() {
-    string i;
-    int i_int{};
-    int num_system;
-    cout << "Enter a number: ";
-    cin >> i;
-    cout << "Enter a number's system (2, 8, 10, 16): ";
-    cin >> num_system;
+	// convert number to decimal
+	for (int i = number.length() - 1; i >= 0; i--)
+	{
+		if (number[i] >= '0' && number[i] <= '9')
+		{
+			decimal += (number[i] - '0') * pow(base, power);
+		}
+		else if (number[i] >= 'A' && number[i] <= 'F')
+		{
+			decimal += (number[i] - 'A' + 10) * pow(base, power);
+		}
+		power++;
+	}
 
-    if (num_system != 2 && num_system != 8 && num_system != 10 && num_system != 16) {
-        cout << "System not supported";
-        return 0;
-    }
+	// convert number from decimal to new base
+	while (decimal > 0)
+	{
+		remainder = decimal % base2;
+		decimal /= base2;
+		if (remainder >= 0 && remainder <= 9)
+		{
+			newNumber = (char)(remainder + '0') + newNumber;
+		}
+		else if (remainder >= 10 && remainder <= 15)
+		{
+			newNumber = (char)(remainder - 10 + 'A') + newNumber;
+		}
+	}
 
-    if (num_system != 16) {
-        i_int = stoi(i);
-    }
-    
-    int i_to_dec;
+	cout << "The number in base " << base2 << " is " << newNumber << endl;
 
-    i_to_dec = i_int;
-
-    if (num_system == 2) {
-        i_to_dec = bin_to_dec(i_int);
-    }
-
-    if (num_system == 8) {
-        i_to_dec = oct_to_dec(i_int);
-    }
-
-    if (num_system == 16) {
-        i_to_dec = hex_to_dec(i);
-    }
-
-    cout << "Decimal: " << i_to_dec << "\nBinary: " << bitset<8>(i_to_dec).to_string() << "\nOctal: " << oct << i_to_dec << "\nHexadecimal: " << hex << i_to_dec;
-
-    return 0;
+	return 0;
 }
