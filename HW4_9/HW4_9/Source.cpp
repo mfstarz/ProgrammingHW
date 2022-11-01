@@ -1,11 +1,3 @@
-// convert number from any base to any other base
-// 1. read number from console
-// 2. read base of number from console
-// 3. read base to convert to from console
-// 4. convert number to decimal
-// 5. convert number from decimal to new base
-// 6. print result to console
-
 #include <iostream>
 #include <string>
 #include <cmath>
