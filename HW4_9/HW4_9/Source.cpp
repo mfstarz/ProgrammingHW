@@ -1,7 +1,32 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+
 using namespace std;
+
+bool valid_base(string str, int base)
+{
+	// A - 65
+	char base_char = 'A';
+	if (base > 9) {
+		base_char = char(base + 55);
+	}
+	else {
+		base_char = char(base + 48);
+	}
+
+	char max_digit = '0';
+	for (int i = 0; i < str.length(); i++) {
+		max_digit = max(max_digit, str[i]);
+	}
+
+	for (int i = 0; i < str.length(); i++) {
+		if (str[i] >= base_char) {
+			return false;
+		}
+	}
+	return true;
+}
 
 int main()
 {
@@ -19,6 +44,12 @@ int main()
 	cin >> base;
 	cout << "Enter the base to convert to: ";
 	cin >> base2;
+
+	// validadte number
+	if (!valid_base(number, base)) {
+		cout << "Wrong base...";
+		return 0;
+	}
 
 	// convert number to decimal
 	for (int i = number.length() - 1; i >= 0; i--)

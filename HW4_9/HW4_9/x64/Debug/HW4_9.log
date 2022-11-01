@@ -1,6 +1,5 @@
 ﻿  Source.cpp
-C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(24,2): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(28,33): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
-C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(32,38): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
-  LINK : не найден или не выполнена сборка C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\x64\Debug\HW4_9.exe при последней инкрементной компоновке; выполняется полная компоновка
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(55,2): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(59,33): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\HW4_9\Source.cpp(63,38): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
   HW4_9.vcxproj -> C:\Users\MAXIM-LAPTOP\Documents\ДЗ Процедурное программирование\HW4_9\x64\Debug\HW4_9.exe
