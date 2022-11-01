@@ -1,6 +1,17 @@
 #include <iostream>
+#include <string>
+#include <cmath>
 
 using namespace std;
+
+bool string_is_number(string text) {
+	for (int i = 0; i < text.length(); i++) {
+		if (!isdigit(text[i]) && text[i] != '-') {
+			return false;
+		}
+		return true;
+	}
+}
 
 int gcd_div(int a, int b) {
 	if (b == 0) {
@@ -25,10 +36,14 @@ int gcd_sub(int a, int b) {
 
 int main()
 {
-	int a, b;
+	string a, b;
 	cout << "Enter two integers: ";
 	cin >> a >> b;
-	cout << "The greatest common divisor of " << a << " and " << b << " using division is " << gcd_div(a, b) << endl;
-	cout << "The greatest common divisor of " << a << " and " << b << " using substraction is " << gcd_sub(a, b) << endl;
+	if (!string_is_number(a) || !string_is_number(b)) {
+		cout << "Error: Not a number";
+		return 0;
+	}
+	cout << "The greatest common divisor of " << a << " and " << b << " using division is " << gcd_div(abs(stoi(a)), abs(stoi(b))) << endl;
+	cout << "The greatest common divisor of " << a << " and " << b << " using substraction is " << gcd_sub(abs(stoi(a)), abs(stoi(b))) << endl;
 	return 0;
 }
