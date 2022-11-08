@@ -50,8 +50,7 @@ int main() {
 		cout << input[i];
 	}
 	cout << endl;
-	
-	// replace all spaces with underscores
+
 	for (int i = 0; i < input.length(); i++) {
 		if (input[i] == ' ') {
 			input[i] = replacer[0];
