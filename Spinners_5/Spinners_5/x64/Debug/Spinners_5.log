@@ -1,0 +1,3 @@
+﻿  Source.cpp
+D:\ProgrammingHW\Spinners_5\Spinners_5\Source.cpp(10,10): warning C4244: инициализация: преобразование "const __int64" в "int", возможна потеря данных
+  Spinners_5.vcxproj -> D:\ProgrammingHW\Spinners_5\x64\Debug\Spinners_5.exe
