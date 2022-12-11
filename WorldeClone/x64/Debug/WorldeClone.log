@@ -1,0 +1,3 @@
+﻿  Source.cpp
+D:\ProgrammingHW\WorldeClone\Source.cpp(19,25): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  WorldeClone.vcxproj -> D:\ProgrammingHW\WorldeClone\x64\Debug\WorldeClone.exe
